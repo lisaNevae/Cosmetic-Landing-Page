@@ -1,0 +1,131 @@
+let d = document,
+  navbar = d.querySelector(".navbar"),
+  navOpen = d.querySelector("#menu-btn"),
+  navClose = d.querySelector("#close-navbar");
+
+navOpen.addEventListener("click", () => {
+  navbar.classList.add("active");
+});
+
+navClose.addEventListener("click", () => {
+  navbar.classList.remove("active");
+});
+
+let searchForm = d.querySelector(".search-form"),
+  btnForm = document.querySelector("#search-btn");
+
+btnForm.addEventListener("click", () => {
+  searchForm.classList.toggle("active");
+});
+
+window.addEventListener("scroll", () => {
+  navbar.classList.remove("active");
+  searchForm.classList.remove("active");
+});
+
+let slides = d.querySelectorAll(".home .slide"),
+  index = 0;
+
+const next = () => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+  console.log("Hola");
+};
+
+const prev = () => {
+  slides[index].classList.remove("active");
+  index = (index - 1 + slides.length) % slides.length;
+  slides[index].classList.add("active");
+  console.log("Hola");
+};
+
+//SWIPER SLIDERS
+let swiperProducts = new Swiper(".products-slider", {
+  loop: true,
+  grabeCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    550: {
+      slidesPerView: 2,
+    },
+
+    850: {
+      slidesPerView: 3,
+    },
+
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+let swiperArrivals = new Swiper(".arrivals-slider", {
+  loop: true,
+  grabeCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    550: {
+      slidesPerView: 2,
+    },
+
+    850: {
+      slidesPerView: 3,
+    },
+
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+let swiperReviews = new Swiper(".reviews-slider", {
+  loop: true,
+  grabeCursor: true,
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+
+    991: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+let swiperBlog = new Swiper(".blogs-slider", {
+  loop: true,
+  grabeCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    650: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+lightGallery(document.querySelector(".gallery .lightbox"));
